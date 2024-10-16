@@ -1,3 +1,5 @@
+osc have 3 pilier : people , procedure , ppt 
+
 ## Introduction
 
 Since cyber attacks on servers have been increasing in the last years, we have to find a way to alert and mitigate these attacks, yes we have antivirus and firewall for that purpose but these these attacks have become more suffiticate and complex that these traditional tools have become obsolete and giving many false positives to be trusted on any infrastructure or have to be implemented on various clooud architecture and microservices
@@ -5,23 +7,108 @@ Since cyber attacks on servers have been increasing in the last years, we have t
 and that why in my last internship as SOC Analyst i was working on developing a more efficient and scalabe SIEM (Security information and event management) Solution to be integrated in the SmartSkills environment to automate treat detection and prevention and then be deployed on azure cloud
 
 
-## What is SOC Analyst
-the role of the soc analyst is divided to 4 level each with its technical roles
-<h4> level 1 : </h4>Intrusion detection :  the ability manually and automatic detect intrusions in the infrastructure , this includes malware infection ,file integrities and network breaches  (we will cover the tools and its configuration in this article )
+## What is SOC
+A group of cybersecurity expert who's mission is to prevent , monitor , detect , analyze and responde to cyber attacks in order to insure that these threat and potential ones are properly mitigated , securing the organizations overall security 
 
-<h4> level 2 :</h4> Incident response :  track the source and mitigate the attacks    
+![alt text](images/Monitor.png)
 
+### Key components 
+SOC is based on 3 main pillar :
 
-<h4> level 3 :</h4> Risk management :  making informative decisions about the attack impact to whether change the architecture or not
+![alt text](images/pillars.png)
 
-<h4> level 4 :</h4> Ethical hacking :  pentesting the project and doing vulnerability scanning
+#### First pillar : People
+All the various cybersecurity professionals who are involved in the SOC Team 
 
+<h4><i> SOC Manager </i></h4>
+The person who ensures that the team operates efficiently and meets organizational goals , and coordinates with other department 
+
+<h4><i> SOC Analyst Level 1 (junior level) </i></h4>
+The ability manually and automatic detect intrusions in the infrastructure , this includes malware infection ,file integrities and network breaches  (we will cover the tools and its configuration in this article ) , then escalate them to more senior analyst , they are also responsible for ticketing each incident and determine its severity
 <br>
+and would work on patching Medium risk level threats (Increased risk of malicious cyber activities, but nothing significant has occurred)
+<br>
+<br>
+Main tasks :
+<ol>
+<li>Storing event logs and system alerts for suspicious activity</li>
+<li>Prepare incident reports</li>
+<li>Works on tickets and case alerts</li>
+<li>Escalate incidents to tier 2 analysts</li>
+</ol>
+
+
+<h4><i> SOC Analyst Level 2 (incident r esponder)) </i></h4>
+Track the source and mitigate the attacks on incidents that needs deeper investigation
+<br>
+and would work on patching Low risk level threats (No notable unusual activity)
+<br>
+<br>
+Main tasks : 
+<ol>
+<li>Conduct deeper investigation on security incident </li>
+<li>Work with other departments to improve overall security </li>
+<li> Make detailed reports and documentation on the incident </li>
+</ol>
+
+<h4><i> SOC Analyst Level 3 (threat hunter)) </i></h4>
+Making informative decisions about the attack impact to whether to change the architecture or not and investigating sophisticated threats that bypass traditional detection methods
+<br>
+and would work on patching High risk level (Significant risk of malicious cyber activities or the potential incident can cause severe damage in the customer environment.)
+<br>
+<br>
+<br>
+Main tasks :
+<ol>
+<li>Keep track of new emergent threats </li>
+<li>Conduct pentest to identifie vulns in the system</li>
+<li>Reverse engineering malware</li>
+</ol>
+
+#### second component : process
+let's break down the monitor -> detect -> analyze -> respond  cycle 
+<ol>
+<li>Develop and implement a incident response workflow and continuously update it </li>
+<li>Escalate incident based on severity level </li>
+<li>Conduct post incident review to identify ares of improvement</li>
+<li>Write documentation on action taken during incident response for audit</li>
+<li>Stay updated on new emergent vuls</li>
+<li>Train and educate SOC team on best incident response practices</li>
+
+</ol>
+
+
+
+####  final part : tecknologies
+ 
+The effectiveness of SOC team depends on the tools used to help maintain the workflow 
+
+one of the most used are : 
+
+<b>Endpoint Detection and Response (EDR):</b> <br>
+focuses on monitoring and responding to threats on host level 
+tool example: CrowdStrike Falcon , Cybereason , Cynet ,...
+
+<b>eXtended Detection and Response (XDR):</b> <br>
+integrate EDR functionalities with capability of network detection and response , so it collects data (logs) from endpoints and networks, with the abilities to integrate AI and machine learning to automate SOC workflow cycle and eliminate the need of manual data correlation
+tool example: Wazuh , Cortex XDR , CrowdStrike Falcon Insight XDR ,...
+
+<b>Security Orchestration Automation Response (SOAR):</b><br>
+collects data (logs) from endpoints and networks and uses automated workflow (pipeline) with the integration of AI 
+to predict and respond for similar threats before they occurs 
+tool example: IBM QRadar SOAR , FortiSOAR , Splunk ,...
+
+
+<b>Intrusion Detection and Prevention System (IDPS ):</b><br>
+identify malicious behavior based on logs from endpoints and networks components , and signaling real time alerts , and in (IPS) it take preconfigured action based on the threat description to minimize potential damage 
+tool example: Suricata , Cisco Secure IPS , Splunk ,...
+
+<b>Security information and event management (SIEM): </b>
 <i>Now to the fun part : implementing a SIEM architecture to help to automate threat detection and prevention but first</i>
 
 ## What is SIEM Solution 
 Its Security information and event management (okeeey??)<br>
-TLDR : monitoring and taking actions based on cyberattack level (its automated and manual methodologies)
+
 ### How it works 
 1 : collecting logs and events from servers and network components , in the context of SIEM they are called clients 
 
@@ -70,7 +157,7 @@ and restart wazuh agent
 Open source platform for threat detection , system monitoring and incident response 
 <br>
 <br>
-Wazuh Agent : sends logs to the wazuh agent , monitoring rules can be added in the ossec.conf file (exp : file integrity , RCE , SQL injection ,brute force attacks ,  ... )  
+Wazuh Agent : sends logs to the wazuh agent , monitoring rules can be added in the ossec.conf Cynetfile (exp : file integrity , RCE , SQL injection ,brute force attacks ,  ... )  
 rule can be found in the wazuh poc documentation : https://documentation.wazuh.com/current/proof-of-concept-guide/index.html
 <br>
 <br>
