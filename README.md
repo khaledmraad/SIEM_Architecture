@@ -1,5 +1,3 @@
-osc have 3 pilier : people , procedure , ppt 
-
 ## Introduction
 
 Since cyber attacks on servers have been increasing in the last years, we have to find a way to alert and mitigate these attacks, yes we have antivirus and firewall for that purpose but these these attacks have become more suffiticate and complex that these traditional tools have become obsolete and giving many false positives to be trusted on any infrastructure or have to be implemented on various clooud architecture and microservices
