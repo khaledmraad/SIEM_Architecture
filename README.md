@@ -127,7 +127,8 @@ https://github.com/khaledmraad/SIEM_Architecture
 ![alt text](<images/SIEM solution.png>)
 
 ![alt text](images/vitual.png) 
-Every part of this is dockerized to be easily deployed on cloud provider and scalable with Kubernetes for production
+Every part of this is dockerized to be easily deployed on cloud provider and scalable with Kubernetes for production<br>
+wazuh manager and Shuffle are in seprate env
 #### Software component and configuration
 
 each component of this architecture is open source
